@@ -58,7 +58,7 @@ python3 my_hello_arm_linux.py
 
 ### Emulate Windows EXE
 
-Script `my_hello_arm_linux.py`:
+Script `my_hello_windows.py`:
 
 ```
 from qiling import *
@@ -75,10 +75,22 @@ if __name__ == "__main__":
 Command:
 
 ```
-python3 my_hello_arm_linux.py
+python3 my_hello_windows.py
 ```
 
-For now this is raising an error. I have submitted an [issue](https://github.com/qilingframework/qiling/issues/699)
+[SOLVED] For now this is raising an error. I have submitted an [issue](https://github.com/qilingframework/qiling/issues/699)
+
+**Note:** Use the script `examples/scripts/dllscollector.bat` on Windows to collect the dlls and registry files.
+
+Details on Windows examples:
+- `crackme_x86_windows_auto.py` is hijacking `stdin` and feeds the correct password without user intervention.
+- `crackme_x86_windows.py` is brute-forcing the password.
+- `crackme_x86_windows_unpatch.py` simulates the program unpatched (i.e. awaits for a password from the user and verifies it).
+- `my_patched_windows.py` always display *Congratulations* no matter the password typed (patches the binary with no-ops over the password verification instructions).
+
+### Emulate Linux x86 ELF
+
+
 
 ### Fuzzing with Qiling Unicornafl
 
